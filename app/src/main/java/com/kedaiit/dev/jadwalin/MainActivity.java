@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                                         upcomingObject.getString("dateEvent"));
 
                                 upcomingItemList.add(upcomingItem);
+
                             }
 
                             ListViewAdapter adapter = new ListViewAdapter(upcomingItemList, getApplicationContext());

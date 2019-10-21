@@ -17,7 +17,7 @@ public class ListViewAdapter extends ArrayAdapter<UpcomingItem> {
     private Context context;
 
     public ListViewAdapter(List<UpcomingItem> upcomingItemList, Context context) {
-        super(context, R.layout.list_item_upcoming, upcomingItemList);
+        super(context, R.layout.fragment_upcoming, upcomingItemList);
         this.upcomingItemList = upcomingItemList;
         this.context = context;
     }
@@ -27,7 +27,7 @@ public class ListViewAdapter extends ArrayAdapter<UpcomingItem> {
 
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View listViewItem = inflater.inflate(R.layout.list_item_upcoming, null, true);
+        View listViewItem = inflater.inflate(R.layout.fragment_upcoming, null, true);
 
         TextView textViewidEvent = listViewItem.findViewById(R.id.tv_idEvent);
         TextView textViewsstrEvent = listViewItem.findViewById(R.id.tv_strEvent);
