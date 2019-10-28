@@ -14,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -44,12 +46,11 @@ public class UpcomingFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_upcoming, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerViewUpcoming);
+        recyclerView = view.findViewById(R.id.recyclerView);
 
         list = new ArrayList<>();
         adapter = new UpcomingAdapter(getContext(), list);
@@ -73,37 +74,44 @@ public class UpcomingFragment extends Fragment {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+        JsonObjectRequest my_request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(JSONArray response) {
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        JSONObject jsonObject = response.getJSONObject(i);
+            public void onResponse(JSONObject response) {
+                try{
+                    JSONArray jsonArray = response.getJSONArray("events");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject Jobj = jsonArray.getJSONObject(i);
 
                         Upcoming obj = new Upcoming();
-                        obj.setIdEvent(jsonObject.getString("idEvent"));
-                        obj.setStrEvent(jsonObject.getString("strEvent"));
-                        obj.setDateEvent(jsonObject.getString("dateEvent"));
+                        obj.setIdEvent(Jobj.getString("idEvent"));
+                        obj.setStrEvent(Jobj.getString("strEvent"));
+                        obj.setDateEvent(Jobj.getString("dateEvent"));
 
 
                         list.add(obj);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        progressDialog.dismiss();
+
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
                 }
                 adapter.notifyDataSetChanged();
                 progressDialog.dismiss();
             }
         }, new Response.ErrorListener() {
+
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("Volley", error.toString());
+                Log.e("Volley", "Error: " + error.getMessage());
                 progressDialog.dismiss();
             }
         });
+
+
+
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(jsonArrayRequest);
+        requestQueue.add(my_request);
     }
 
 }
