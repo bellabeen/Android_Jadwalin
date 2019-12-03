@@ -1,6 +1,9 @@
-package com.kedaiit.dev.jadwalin;
+package com.kedaiit.dev.jadwalin.model;
 
-public class Result {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Result implements Parcelable {
 
     private String strHomeTeam;
     private String strAwayTeam;
@@ -13,7 +16,6 @@ public class Result {
     private String strAwayGoalDetails;
     private String strAwayRedCards;
     private String strAwayYellowCards;
-
     private String intHomeScore;
     private String intAwayScore;
 
@@ -126,21 +128,6 @@ public class Result {
         this.strAwayYellowCards = strAwayYellowCards;
     }
 
-//    public Integer getIntHomeScore() {
-//        return intHomeScore;
-//    }
-//
-//    public void setIntHomeScore(Integer intHomeScore) {
-//        this.intHomeScore = intHomeScore;
-//    }
-//
-//    public Integer getIntAwayScore() {
-//        return intAwayScore;
-//    }
-//
-//    public void setIntAwayScore(Integer intAwayScore) {
-//        this.intAwayScore = intAwayScore;
-//    }
 
     public Result(String strHomeTeam, String strAwayTeam, String strEvent, String strDate, String strTime, String strHomeGoalDetails,
                   String strHomeRedCards, String strHomeYellowCards, String strAwayGoalDetails, String strAwayRedCards, String strAwayYellowCards, String intHomeScore, String intAwayScore) {
@@ -159,4 +146,53 @@ public class Result {
         this.intAwayScore = intAwayScore;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.strHomeTeam);
+        dest.writeString(this.strAwayTeam);
+        dest.writeString(this.strEvent);
+        dest.writeString(this.strDate);
+        dest.writeString(this.strTime);
+        dest.writeString(this.strHomeGoalDetails);
+        dest.writeString(this.strHomeRedCards);
+        dest.writeString(this.strHomeYellowCards);
+        dest.writeString(this.strAwayGoalDetails);
+        dest.writeString(this.strAwayRedCards);
+        dest.writeString(this.strAwayYellowCards);
+        dest.writeString(this.intHomeScore);
+        dest.writeString(this.intAwayScore);
+    }
+
+    protected Result(Parcel in) {
+        this.strHomeTeam = in.readString();
+        this.strAwayTeam = in.readString();
+        this.strEvent = in.readString();
+        this.strDate = in.readString();
+        this.strTime = in.readString();
+        this.strHomeGoalDetails = in.readString();
+        this.strHomeRedCards = in.readString();
+        this.strHomeYellowCards = in.readString();
+        this.strAwayGoalDetails = in.readString();
+        this.strAwayRedCards = in.readString();
+        this.strAwayYellowCards = in.readString();
+        this.intHomeScore = in.readString();
+        this.intAwayScore = in.readString();
+    }
+
+    public static final Creator<Result> CREATOR = new Creator<Result>() {
+        @Override
+        public Result createFromParcel(Parcel source) {
+            return new Result(source);
+        }
+
+        @Override
+        public Result[] newArray(int size) {
+            return new Result[size];
+        }
+    };
 }

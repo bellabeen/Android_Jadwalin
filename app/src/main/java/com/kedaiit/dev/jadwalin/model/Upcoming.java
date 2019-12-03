@@ -1,4 +1,4 @@
-package com.kedaiit.dev.jadwalin;
+package com.kedaiit.dev.jadwalin.model;
 
 public class Upcoming  {
     private String idEvent, strEvent, dateEvent;

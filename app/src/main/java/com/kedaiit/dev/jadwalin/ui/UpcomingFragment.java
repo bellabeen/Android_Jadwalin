@@ -1,9 +1,7 @@
-package com.kedaiit.dev.jadwalin;
+package com.kedaiit.dev.jadwalin.ui;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,15 +10,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.kedaiit.dev.jadwalin.R;
+import com.kedaiit.dev.jadwalin.model.Upcoming;
+import com.kedaiit.dev.jadwalin.adapter.UpcomingAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
