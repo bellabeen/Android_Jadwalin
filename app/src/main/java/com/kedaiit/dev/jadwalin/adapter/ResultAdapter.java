@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kedaiit.dev.jadwalin.R;
@@ -32,44 +33,41 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
         return new ViewHolder(v);
     }
 
+    
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Result obj = list.get(position);
 
+
         holder.strHomeTeam.setText(obj.getStrHomeTeam());
         holder.strAwayTeam.setText(obj.getStrAwayTeam());
         holder.strDate.setText(obj.getStrDate());
-        holder.strTime.setText(obj.getStrTime());
-        holder.strHomeGoalDetails.setText(obj.getStrHomeGoalDetails());
-        holder.strHomeRedCards.setText(obj.getStrHomeRedCards());
-        holder.strHomeYellowCards.setText(obj.getStrHomeYellowCards());
-        holder.strAwayGoalsDetail.setText(obj.getStrAwayGoalDetails());
-        holder.strAwayRedCards.setText(obj.getStrAwayRedCards());
-        holder.strAwayYellowCards.setText(obj.getStrAwayYellowCards());
         holder.intHomeScore.setText(obj.getIntHomeScore());
         holder.intAwayScore.setText(obj.getIntAwayScore());
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailResult.class);
+                intent.putExtra("strHomeTeam",obj.getStrHomeTeam());
+                intent.putExtra("strAwayTeam", obj.getStrAwayTeam());
+                intent.putExtra("strDate",obj.getStrDate());
+                intent.putExtra("strTime",obj.getStrTime());
+                intent.putExtra("strHomeGoalsDetails",obj.getStrHomeGoalDetails());
+                intent.putExtra("strHomeRedCards",obj.getStrHomeRedCards());
+                intent.putExtra("strHomeYellowCards",obj.getStrHomeYellowCards());
+                intent.putExtra("strAwayGoalsDetails",obj.getStrAwayGoalDetails());
+                intent.putExtra("strAwayRedCards",obj.getStrAwayRedCards());
+                intent.putExtra("strAwayYellowCards",obj.getStrAwayYellowCards());
+                intent.putExtra("intHomeScore",obj.getIntHomeScore());
+                intent.putExtra("intAwayScore",obj.getIntAwayScore());
+
+                context.startActivity(intent);
+            }
+        });
 
 
-//        ViewHolder.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, DetailResult.class);
-//                intent.putExtra("strHomeTeam",strHomeTeam);
-//                intent.putExtra("strAwayTeam", strAwayTeam);
-//                intent.putExtra("strDate", strDate);
-//                intent.putExtra("strTime", strTime);
-//                intent.putExtra("strHomeGoalDetails", strHomeGoalDetails);
-//                intent.putExtra("strHomeRedCards", strHomeRedCards);
-//                intent.putExtra("strHomeYellowCards", strHomeYellowCards);
-//                intent.putExtra("strAwayGoalsDetail", strAwayGoalsDetail);
-//                intent.putExtra("strAwayRedCards", strAwayRedCards);
-//                intent.putExtra("strAwayYellowCards", strAwayYellowCards);
-//                intent.putExtra("intHomeScore", intHomeScore);
-//                intent.putExtra("intAwayScore", intAwayScore);
-//                context.startActivity(intent);
-//
-//            }
-//        });
+
 
     }
 
@@ -79,26 +77,21 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView strHomeTeam, strAwayTeam,strDate, strTime, strHomeGoalDetails, strHomeRedCards,
-                strHomeYellowCards, strAwayGoalsDetail, strAwayRedCards, strAwayYellowCards, intAwayScore, intHomeScore;
+        private TextView strHomeTeam, strAwayTeam,strDate, intAwayScore, intHomeScore;
+        private LinearLayout linearLayout;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            linearLayout = itemView.findViewById(R.id.linearRl);
             strHomeTeam = itemView.findViewById(R.id.tv_strHomeTeam);
             strAwayTeam = itemView.findViewById(R.id.tv_strAwayTeam);
             strDate = itemView.findViewById(R.id.tv_strDate);
-            strTime = itemView.findViewById(R.id.tv_strTime);
-            strHomeGoalDetails = itemView.findViewById(R.id.tv_strHomeGoalDetails);
-            strHomeRedCards = itemView.findViewById(R.id.tv_strHomeRedCards);
-            strHomeYellowCards = itemView.findViewById(R.id.tv_strHomeYellowCards);
-            strAwayGoalsDetail = itemView.findViewById(R.id.tv_strAwayGoalDetails);
-            strAwayRedCards = itemView.findViewById(R.id.tv_strAwayRedCards);
-            strAwayYellowCards = itemView.findViewById(R.id.tv_strAwayYellowCards);
-
             intAwayScore = itemView.findViewById(R.id.tv_intAwayScore);
             intHomeScore = itemView.findViewById(R.id.tv_intHomeScore);
+
+
         }
     }
 }

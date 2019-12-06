@@ -121,7 +121,7 @@ public class ResultFragment extends Fragment implements View.OnClickListener {
                         obj.setStrHomeGoalDetails(Jobj.getString("strHomeGoalDetails"));
                         obj.setStrHomeRedCards(Jobj.getString("strHomeRedCards"));
                         obj.setStrHomeYellowCards(Jobj.getString("strHomeYellowCards"));
-                        obj.setStrAwayGoalDetails(Jobj.getString("strAwayGoalDetail"));
+                        obj.setStrAwayGoalDetails(Jobj.getString("strAwayGoalDetails"));
                         obj.setStrAwayRedCards(Jobj.getString("strAwayRedCards"));
                         obj.setStrAwayYellowCards(Jobj.getString("strAwayYellowCards"));
 
