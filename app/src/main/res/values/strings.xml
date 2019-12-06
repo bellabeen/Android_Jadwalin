@@ -3,4 +3,5 @@
     <string name="id_event">Id Event</string>
     <string name="match">Match</string>
     <string name="date">Date</string>
+    <string name="yellow_cards">Yellow Cards</string>
 </resources>

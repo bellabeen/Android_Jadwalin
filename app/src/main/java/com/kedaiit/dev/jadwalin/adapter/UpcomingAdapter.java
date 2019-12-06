@@ -37,16 +37,6 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.ViewHo
         holder.idEvent.setText(obj.getIdEvent());
         holder.strEvent.setText(obj.getStrEvent());
         holder.dateEvent.setText(obj.getDateEvent());
-//
-//        holder.box_linear.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, ListMahasiswaActivity.class);
-//                intent.putExtra("tahun", obj.getTahun());
-//                intent.putExtra("jumlah", Integer.toString(obj.getJumlah()));
-//                context.startActivity(intent);
-//            }
-//        });
     }
 
     @Override

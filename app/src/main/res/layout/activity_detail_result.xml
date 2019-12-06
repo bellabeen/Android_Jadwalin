@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:layout_marginRight="@dimen/activity_vertical_margin"
-                        android:text="Yellow Cards"/>
+                        android:text="@string/yellow_cards"/>
                     <TextView
                         android:id="@+id/tv_strAwayYellowCards"
                         android:layout_width="match_parent"

@@ -39,7 +39,6 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Result obj = list.get(position);
 
-
         holder.strHomeTeam.setText(obj.getStrHomeTeam());
         holder.strAwayTeam.setText(obj.getStrAwayTeam());
         holder.strDate.setText(obj.getStrDate());
@@ -50,15 +49,15 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailResult.class);
                 intent.putExtra("strHomeTeam",obj.getStrHomeTeam());
-                intent.putExtra("strAwayTeam", obj.getStrAwayTeam());
-                intent.putExtra("strDate",obj.getStrDate());
-                intent.putExtra("strTime",obj.getStrTime());
-                intent.putExtra("strHomeGoalsDetails",obj.getStrHomeGoalDetails());
+                intent.putExtra("strHomeGoalDetails",obj.getStrHomeGoalDetails());
                 intent.putExtra("strHomeRedCards",obj.getStrHomeRedCards());
                 intent.putExtra("strHomeYellowCards",obj.getStrHomeYellowCards());
-                intent.putExtra("strAwayGoalsDetails",obj.getStrAwayGoalDetails());
+                intent.putExtra("strAwayTeam", obj.getStrAwayTeam());
+                intent.putExtra("strAwayGoalDetails",obj.getStrAwayGoalDetails());
                 intent.putExtra("strAwayRedCards",obj.getStrAwayRedCards());
                 intent.putExtra("strAwayYellowCards",obj.getStrAwayYellowCards());
+                intent.putExtra("strDate",obj.getStrDate());
+                intent.putExtra("strTime",obj.getStrTime());
                 intent.putExtra("intHomeScore",obj.getIntHomeScore());
                 intent.putExtra("intAwayScore",obj.getIntAwayScore());
 

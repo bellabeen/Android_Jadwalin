@@ -65,34 +65,6 @@ public class ResultFragment extends Fragment implements View.OnClickListener {
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(adapter);
 
-
-//        //Menambahan Listener, untuk menangani kejadian saat salah satu item listView di klik
-//        recyclerView.setOnClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                //Mendapatkan Nama pada salah satu item yang diklik, berdasarkan posisinya
-//
-//                //Berpindah Activity dan Mempassing data Nama pada Activity Selanjutnya
-//                Intent intent = new Intent(getContext(), DetailResult.class);
-//                intent.putExtra("strHomeTeam", getString(strHomeTeam));
-//                getContext().startActivity(intent);
-//            }
-//        });
-//    }
-
-
-//    Intent intent = new Intent(context, ListViewDetail.class);
-//                intent.putExtra("iNama", nama);
-//                intent.putExtra("iRemarks", remarks);
-//                intent.putExtra("iFoto", foto);
-//                intent.putExtra("iDetail", detail);
-//                intent.putExtra("iKingdom", kingdom);
-//                intent.putExtra("iKelas", kelas);
-//                intent.putExtra("iFilum", filum);
-//                intent.putExtra("iOrdo", ordo);
-//                intent.putExtra("iFamili", famili);
-//                context.startActivity(intent);
-
         getData();
         return view;
 
@@ -115,16 +87,15 @@ public class ResultFragment extends Fragment implements View.OnClickListener {
 
                         Result obj = new Result();
                         obj.setStrHomeTeam(Jobj.getString("strHomeTeam"));
-                        obj.setStrAwayTeam(Jobj.getString("strAwayTeam"));
-                        obj.setStrDate(Jobj.getString("strDate"));
-                        obj.setStrTime(Jobj.getString("strTime"));
                         obj.setStrHomeGoalDetails(Jobj.getString("strHomeGoalDetails"));
                         obj.setStrHomeRedCards(Jobj.getString("strHomeRedCards"));
                         obj.setStrHomeYellowCards(Jobj.getString("strHomeYellowCards"));
+                        obj.setStrAwayTeam(Jobj.getString("strAwayTeam"));
                         obj.setStrAwayGoalDetails(Jobj.getString("strAwayGoalDetails"));
                         obj.setStrAwayRedCards(Jobj.getString("strAwayRedCards"));
                         obj.setStrAwayYellowCards(Jobj.getString("strAwayYellowCards"));
-
+                        obj.setStrDate(Jobj.getString("strDate"));
+                        obj.setStrTime(Jobj.getString("strTime"));
                         obj.setIntHomeScore(Jobj.getString("intHomeScore"));
                         obj.setIntAwayScore(Jobj.getString("intAwayScore"));
 

@@ -41,10 +41,10 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
         holder.strAwayTeam.setText(obj.getStrAwayTeam());
         holder.strDate.setText(obj.getStrDate());
         holder.strTime.setText(obj.getStrTime());
-        holder.strHomeGoalDetails.setText(obj.getStrHomeGoalDetails());
+        holder.strHomeGoalDetails.setText(obj.getStrAwayGoalDetails());
         holder.strHomeRedCards.setText(obj.getStrHomeRedCards());
         holder.strHomeYellowCards.setText(obj.getStrHomeYellowCards());
-        holder.strAwayGoalsDetail.setText(obj.getStrAwayGoalDetails());
+        holder.strAwayGoalsDetails.setText(obj.getStrAwayGoalDetails());
         holder.strAwayRedCards.setText(obj.getStrAwayRedCards());
         holder.strAwayYellowCards.setText(obj.getStrAwayYellowCards());
         holder.intHomeScore.setText(obj.getIntHomeScore());
@@ -60,7 +60,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout relative;
         private TextView strHomeTeam, strAwayTeam,strDate, strTime, strHomeGoalDetails, strHomeRedCards,
-        strHomeYellowCards, strAwayGoalsDetail, strAwayRedCards, strAwayYellowCards, intAwayScore, intHomeScore;
+        strHomeYellowCards, strAwayGoalsDetails, strAwayRedCards, strAwayYellowCards, intAwayScore, intHomeScore;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -73,7 +73,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
             strHomeGoalDetails = itemView.findViewById(R.id.tv_strHomeGoalDetails);
             strHomeRedCards = itemView.findViewById(R.id.tv_strHomeRedCards);
             strHomeYellowCards = itemView.findViewById(R.id.tv_strHomeYellowCards);
-            strAwayGoalsDetail = itemView.findViewById(R.id.tv_strAwayGoalDetails);
+            strAwayGoalsDetails = itemView.findViewById(R.id.tv_strAwayGoalDetails);
             strAwayRedCards = itemView.findViewById(R.id.tv_strAwayRedCards);
             strAwayYellowCards = itemView.findViewById(R.id.tv_strAwayYellowCards);
 

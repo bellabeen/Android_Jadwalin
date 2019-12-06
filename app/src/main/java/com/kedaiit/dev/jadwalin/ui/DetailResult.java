@@ -18,6 +18,7 @@ public class DetailResult extends AppCompatActivity {
     TextView strHomeTeam, strAwayTeam,strDate, strTime, strHomeGoalDetails, strHomeRedCards,
             strHomeYellowCards, strAwayGoalsDetail, strAwayRedCards, strAwayYellowCards, intAwayScore, intHomeScore;
 
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,68 +27,50 @@ public class DetailResult extends AppCompatActivity {
 //
 //        holder.strHomeTeam.setText(obj.getStrHomeTeam());
         final String strHomeTeam = getIntent().getExtras().getString("strHomeTeam");
-        final String strAwayTeam = getIntent().getExtras().getString("strAwayTeam");
-        final String strDate = getIntent().getExtras().getString("strDate");
-        final String strTime = getIntent().getExtras().getString("strTime");
         final String strHomeGoalDetails = getIntent().getExtras().getString("strHomeGoalDetails");
         final String strHomeRedCards = getIntent().getExtras().getString("strHomeRedCards");
         final String strHomeYellowCards = getIntent().getExtras().getString("strHomeYellowCards");
-        final String strAwayGoalDetail = getIntent().getExtras().getString("strAwayGoalDetail");
+        final String strAwayTeam = getIntent().getExtras().getString("strAwayTeam");
+        final String strAwayGoalDetails = getIntent().getExtras().getString("strAwayGoalDetails");
         final String strAwayRedCards = getIntent().getExtras().getString("strAwayRedCards");
         final String strAwayYellowCards = getIntent().getExtras().getString("strAwayYellowCards");
+        final String strDate = getIntent().getExtras().getString("strDate");
+        final String strTime = getIntent().getExtras().getString("strTime");
         final String intAwayScore = getIntent().getExtras().getString("intAwayScore");
         final String intHomeScore = getIntent().getExtras().getString("intHomeScore");
 
 
         //id
 //        img_photo = findViewById(R.id.img_item_photo);
+
         TextView HomeTeam = findViewById(R.id.tv_strHomeTeam);
-        TextView AwayTeam = findViewById(R.id.tv_strAwayTeam);
-        TextView Date = findViewById(R.id.tv_strDate);
-        TextView Time = findViewById(R.id.tv_strTime);
         TextView HomeGoalDetails = findViewById(R.id.tv_strHomeGoalDetails);
         TextView HomeRedCards = findViewById(R.id.tv_strHomeRedCards);
         TextView HomeYellowCards = findViewById(R.id.tv_strHomeYellowCards);
+        TextView AwayTeam = findViewById(R.id.tv_strAwayTeam);
         TextView AwayGoalDetails = findViewById(R.id.tv_strAwayGoalDetails);
         TextView AwayRedCards = findViewById(R.id.tv_strAwayRedCards);
-        TextView AwayYellowCars = findViewById(R.id.tv_strAwayYellowCards);
+        TextView AwayYellowCards = findViewById(R.id.tv_strAwayYellowCards);
+        TextView Date = findViewById(R.id.tv_strDate);
+        TextView Time = findViewById(R.id.tv_strTime);
+
+
         TextView AwayScore = findViewById(R.id.tv_intAwayScore);
         TextView HomeScore = findViewById(R.id.tv_intHomeScore);
 
 
-//        strAwayTeam = itemView.findViewById(R.id.tv_strAwayTeam);
-//        strDate = itemView.findViewById(R.id.tv_strDate);
-//        strTime = itemView.findViewById(R.id.tv_strTime);
-//        strHomeGoalDetails = itemView.findViewById(R.id.tv_strHomeGoalDetails);
-//        strHomeRedCards = itemView.findViewById(R.id.tv_strHomeRedCards);
-//        strHomeYellowCards = itemView.findViewById(R.id.tv_strHomeYellowCards);
-//        strAwayGoalsDetail = itemView.findViewById(R.id.tv_strAwayGoalDetails);
-//        strAwayRedCards = itemView.findViewById(R.id.tv_strAwayRedCards);
-//        strAwayYellowCards = itemView.findViewById(R.id.tv_strAwayYellowCards);
-//
-//        intAwayScore = itemView.findViewById(R.id.tv_intAwayScore);
-//        intHomeScore = itemView.findViewById(R.id.tv_intHomeScore);
-
         //setText
         HomeTeam.setText(strHomeTeam);
-        AwayTeam.setText(strAwayTeam);
-        Date.setText(strDate);
-        Time.setText(strTime);
         HomeGoalDetails.setText(strHomeGoalDetails);
         HomeRedCards.setText(strHomeRedCards);
         HomeYellowCards.setText(strHomeYellowCards);
-        AwayGoalDetails.setText(strAwayGoalDetail);
+        AwayTeam.setText(strAwayTeam);
+        AwayGoalDetails.setText(strAwayGoalDetails);
         AwayRedCards.setText(strAwayRedCards);
-        AwayYellowCars.setText(strAwayYellowCards);
+        AwayYellowCards.setText(strAwayYellowCards);
+        Date.setText(strDate);
+        Time.setText(strTime);
         AwayScore.setText(intAwayScore);
         HomeScore.setText(intHomeScore);
-
-        //ini load gambar
-
-//        Glide.with(this)
-//                .load(dtFoto)
-////                .apply(new RequestOptions().override(100, 100))
-//                .into(img_photo);
-
     }
 }
